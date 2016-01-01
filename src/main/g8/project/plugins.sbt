@@ -1,8 +1,6 @@
-addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.9.0")
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.14.1")
 
-addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.0")
-
-addSbtPlugin("me.lessis" % "sbt-growl-plugin" % "0.1.3")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.9")
 
 resolvers += Classpaths.sbtPluginReleases
 
@@ -11,5 +9,3 @@ resolvers += Classpaths.sbtPluginReleases
 // addSbtPlugin("com.github.gseitz" % "sbt-release" % "0.6")
 
 // addSbtPlugin("net.virtual-void" % "sbt-dependency-graph" % "0.7.0")
-
-

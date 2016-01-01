@@ -17,7 +17,7 @@ scmInfo := Some(
 )
 
 /* scala versions and options */
-scalaVersion := "2.10.2"
+scalaVersion := "2.11.7"
 
 crossScalaVersions := Seq(
 /*  "2.9.3-RC1",
@@ -32,7 +32,7 @@ scalacOptions ++= Seq(
   "-deprecation"
   ,"-unchecked"
   ,"-encoding", "UTF-8"
-  ,"-target:jvm-1.7"
+  ,"-target:jvm-1.8"
   // "-optimise"   // this option will slow your build
 )
 
@@ -63,20 +63,16 @@ javacOptions ++= Seq("-Xlint:unchecked", "-Xlint:deprecation")
 
 /* dependencies */
 libraryDependencies ++= Seq (
-  "com.github.nscala-time" %% "nscala-time" % "0.4.2"
+  "com.github.nscala-time" %% "nscala-time" % "2.6.0"
   // -- network --
   //,"net.databinder.dispatch" %% "dispatch-core" % "0.10.1"
   // -- testing --
-  , "org.scalatest" % "scalatest_2.10" % "2.0.M5b" % "test"
-  , "org.scalamock" %% "scalamock-scalatest-support" % "3.0.1" % "test" 
-  // -- Logging --
-  ,"ch.qos.logback" % "logback-classic" % "1.0.13"
-  // -- Akka --
-  ,"com.typesafe.akka" %% "akka-testkit" % "2.2.0-RC2" % "test"
-  ,"com.typesafe.akka" %% "akka-actor" % "2.2.0-RC2"
-  ,"com.typesafe.akka" %% "akka-slf4j" % "2.2.0-RC2"
-  // -- Sql --
-  ,"com.typesafe.slick" %% "slick" % "1.0.1"
+  , "org.scalatest" %% "scalatest" % "2.2.4" % "test"
+  , "org.scalamock" %% "scalamock-scalatest-support" % "3.2" % "test"
+  // -- Persistence / API --
+  ,"com.typesafe.slick" %% "slick" % "3.1.1"
+  ,"io.igl" %% "jwt" % "1.2.0"
+  ,"net.debasishg" %% "redisclient" % "3.0"
 )
 
 /* you may need these repos */
@@ -87,8 +83,6 @@ resolvers ++= Seq(
 )
 
 /* assembly plugin */
-mainClass in AssemblyKeys.assembly := Some("$project_group_id$.$name;format="snake"$.Main")
+mainClass in assembly := Some("$project_group_id$.$name;format="snake"$.Main")
 
-assemblySettings
-
-test in AssemblyKeys.assembly := {}
+test in assembly := {}
